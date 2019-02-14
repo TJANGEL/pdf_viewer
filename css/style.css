@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.top-bar {
+  background: darkslateblue;
+  color: ivory;
+  padding: 1.5rem;
+}
+
+.btn {
+  background: lightcoral;
+  color: ivory;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0.8rem 1.8rem;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.page-info {
+  margin-left: 1rem;
+}
+
+.error {
+  background: salmon;
+  color: ivory;
+  padding: 1em;
+}

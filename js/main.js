@@ -66,14 +66,26 @@ const showNextPage = () => {
 };
 
 // get the document
-pdfjsLib.getDocument(url).promise.then(pdfDoc_ => {
-  pdfDoc = pdfDoc_;
-  console.log(pdfDoc);
+pdfjsLib
+  .getDocument(url)
+  .promise.then(pdfDoc_ => {
+    pdfDoc = pdfDoc_;
+    console.log(pdfDoc);
 
-  document.querySelector("#page-count").textContent = pdfDoc.numPages;
+    document.querySelector("#page-count").textContent = pdfDoc.numPages;
 
-  renderPage(pageNum);
-});
+    renderPage(pageNum);
+  })
+  .catch(err => {
+    // Display Error
+    const div = document.createElement("div");
+    div.className = "error";
+    div.appendChild(document.createTextNode(err.message));
+    document.querySelector("body").insertBefore(div, canvas);
+
+    // Remove top bar
+    document.querySelector(".top-bar").style.display = "none";
+  });
 
 // Button Events
 document
